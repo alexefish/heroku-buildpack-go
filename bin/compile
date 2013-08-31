@@ -68,9 +68,9 @@ then
     . $venv/bin/activate > /dev/null 2>&1
     echo " done"
 
-    # echo -n "       Installing Mercurial..."
-    # pip install --use-mirrors mercurial > /dev/null 2>&1
-    # echo " done"
+    echo -n "       Installing Mercurial..."
+    pip install --use-mirrors mercurial > /dev/null 2>&1
+    echo " done"
 
     echo -n "       Installing Bazaar..."
     pip install --use-mirrors bzr > /dev/null 2>&1
@@ -86,10 +86,10 @@ cd $p
 if test -f $build/Godeps
 then
     echo "-----> Running: godep go get -tags heroku ./..."
-    godep go get -tags heroku ./...
+    godep go get -u -tags heroku ./...
 else
     echo "-----> Running: go get -tags heroku ./..."
-    go get -tags heroku ./...
+    go get -u -tags heroku ./...
 fi
 
 mkdir -p $build/bin
